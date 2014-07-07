@@ -1,6 +1,6 @@
 {
   "name": "percent-change",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Calculate the change in percentage for two numbers",
   "main": "index.js",
   "dependencies": {
