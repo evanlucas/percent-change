@@ -44,9 +44,17 @@ describe('change', function() {
     })
   })
 
-  it('should return Infinity when passing 0 as from', function() {
+  it('should return Infinity from is 0 and to is not 0', function() {
     var c = change(0, 100)
     c.should.equal(Infinity)
+  })
+
+  it('should return 0 if both from and to are 0', function() {
+    change(0, 0).should.equal(0)
+  })
+
+  it('should return 0.00% if from and to are 0 and fmt is passed', function() {
+    change(0, 0, true).should.equal('0.00%')
   })
 
   describe('format', function() {
