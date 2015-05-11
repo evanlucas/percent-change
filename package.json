@@ -4,6 +4,7 @@
   "description": "Calculate the change in percentage for two numbers",
   "main": "index.js",
   "dependencies": {
+    "help": "~2.0.0",
     "nopt": "~3.0.1"
   },
   "devDependencies": {

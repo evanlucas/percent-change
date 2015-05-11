@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-var fs = require('fs')
-  , nopt = require('nopt')
+var nopt = require('nopt')
   , knownOpts = { help: Boolean
                 , version: Boolean
                 , places: Number
@@ -13,11 +12,11 @@ var fs = require('fs')
                 , f: ['--format']
                 }
   , parsed = nopt(knownOpts, shortHand)
+  , usage = require('help')()
   , change = require('../')
 
 if (parsed.help) {
-  usage(0)
-  return
+  return usage(0)
 }
 
 if (parsed.version) {
@@ -32,19 +31,10 @@ var places = parsed.hasOwnProperty('places')
 var args = parsed.argv.remain
 
 if (args.length < 2) {
-  usage(1)
-  return
+  return usage(1)
 }
 
 var from = args.shift()
 var to = args.shift()
 
 console.log(change(from, to, places, parsed.format))
-
-function usage(code) {
-  var rs = fs.createReadStream(__dirname + '/usage.txt')
-  rs.pipe(process.stdout)
-  rs.on('close', function() {
-    if (code) process.exit(code)
-  })
-}
