@@ -18,12 +18,6 @@ $ npm install --save percent-change
 $ npm test
 ```
 
-## Coverage
-
-```bash
-$ npm run cover
-```
-
 ## API
 
 ### change(from, to, places, fmt)
