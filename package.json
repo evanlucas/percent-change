@@ -8,22 +8,10 @@
     "nopt": "~3.0.1"
   },
   "devDependencies": {
-    "jostle": "~1.0.0",
-    "blanket": "~1.1.6",
-    "mocha": "~1.20.1",
-    "should": "~4.0.4"
+    "tap": "~2.2.0"
   },
   "scripts": {
-    "test": "mocha -R spec",
-    "cover": "mocha -r blanket -R json-cov | jostle",
-    "cover-html": "mocha -r blanket -R html-cov > coverage.html",
-    "circle": "mkdir -p $CIRCLE_ARTIFACTS && mocha -r blanket -R html-cov > $CIRCLE_ARTIFACTS/coverage.html"
-  },
-  "config": {
-    "blanket": {
-      "pattern": "/lib/",
-      "data-cover-never": "node_modules"
-    }
+    "test": "tap test/*.js --cov"
   },
   "bin": {
     "percent-change": "./bin/cmd.js"
