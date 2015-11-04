@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 
-var nopt = require('nopt')
-  , knownOpts = { help: Boolean
-                , version: Boolean
-                , places: Number
-                , format: Boolean
-                }
-  , shortHand = { h: ['--help']
-                , v: ['--version']
-                , p: ['--places']
-                , f: ['--format']
-                }
-  , parsed = nopt(knownOpts, shortHand)
-  , usage = require('help')()
-  , change = require('../')
+'use strict'
+
+const nopt = require('nopt')
+    , knownOpts = { help: Boolean
+                  , version: Boolean
+                  , places: Number
+                  , format: Boolean
+                  }
+    , shortHand = { h: ['--help']
+                  , v: ['--version']
+                  , p: ['--places']
+                  , f: ['--format']
+                  }
+    , parsed = nopt(knownOpts, shortHand)
+    , usage = require('help')()
+    , change = require('../')
 
 if (parsed.help) {
   return usage(0)
@@ -24,17 +26,17 @@ if (parsed.version) {
   return
 }
 
-var places = parsed.hasOwnProperty('places')
+const places = parsed.hasOwnProperty('places')
   ? parsed.places
   : 2
 
-var args = parsed.argv.remain
+const args = parsed.argv.remain
 
 if (args.length < 2) {
   return usage(1)
 }
 
-var from = args.shift()
-var to = args.shift()
+const from = args.shift()
+const to = args.shift()
 
 console.log(change(from, to, places, parsed.format))

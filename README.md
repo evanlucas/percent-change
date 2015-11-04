@@ -1,6 +1,10 @@
 # percent-change
 
-[![Build Status](https://circleci.com/gh/evanlucas/percent-change.png?circle-token=e3e9be975da8c6a6d51825eb894b441a30029f4f)](https://circleci.com/gh/evanlucas/percent-change)
+[![Build Status](https://travis-ci.org/evanlucas/percent-change.svg)](https://travis-ci.org/evanlucas/percent-change)
+[![codecov.io](https://codecov.io/github/evanlucas/percent-change/coverage.svg?branch=master)](https://codecov.io/github/evanlucas/percent-change?branch=master)
+
+*Note: `percent-change` is only supported on iojs and node v4+.
+To use with an older version of node, please use `percent-change@0.1`.*
 
 ## Installation
 
